@@ -20,7 +20,7 @@ The benchmark compares hpgemm against Intel MKL SGEMM on square matrices. Benche
 <p align="center">
   <figure>
     <img src="benchmarks/intel_xeon_e5_2683_singlethread.png" alt="Intel Xeon E5-2683 single thread" width="700">
-    <figcaption align="center">Intel Xeon E5-2683</figcaption>
+    <figcaption align="center">Intel Xeon E5-2683 v4</figcaption>
   </figure>
 </p>
 
@@ -36,7 +36,7 @@ The benchmark compares hpgemm against Intel MKL SGEMM on square matrices. Benche
 <p align="center">
   <figure>
     <img src="benchmarks/intel_xeon_e5_2683_multithread.png" alt="Intel Xeon E5-2683 multi thread" width="700">
-    <figcaption align="center">Intel Xeon E5-2683 (64 cores)</figcaption>
+    <figcaption align="center">Intel Xeon E5-2683 v4 (64 cores)</figcaption>
   </figure>
 </p>
 
