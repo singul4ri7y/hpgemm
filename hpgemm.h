@@ -64,7 +64,7 @@ extern int hpgemm_mc, hpgemm_kc, hpgemm_nc;
 
 
 /* Detect the CPU and select the microkernel. Called by `hpgemm()` lazily. */
-void hpgemm_init(void);
+void kernel_init(void);
 
 /* Platform independent aligned allocation (`align` must be power of 2). */
 void *hpgemm_malloc(size_t size, size_t align);

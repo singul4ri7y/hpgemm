@@ -259,6 +259,8 @@ HPGEMM_HOT static void hpgemm_ukernel_avx2_6x16(
 
 /* ================ AVX-512 ================ */
 
+#if defined(__AVX512__)
+
 /* Outer product of a column of `x` and a row of `y`, accumulated into the
    14x32 tile. Offsets are in bytes, `y_0` and `y_1` point to the two halves of
    the row of `y` and `x_i` to the elements of the column of `x`. */
@@ -523,6 +525,8 @@ HPGEMM_HOT static void hpgemm_ukernel_avx512_14x32(
     );
 }
 
+#endif  // AVX512
+
 /* ================ AVX-512 END ================ */
 
 #endif  // __x86_64__
@@ -728,7 +732,7 @@ HPGEMM_HOT static void hpgemm_ukernel_neon_6x16(
 #endif  // __aarch64__
 
 
-void hpgemm_init(void) {
+void kernel_init(void) {
     /* Fallback. */
     hpgemm_ukernel = hpgemm_ukernel_generic;
     hpgemm_mr = 6;
@@ -740,12 +744,16 @@ void hpgemm_init(void) {
        the compiler flags. */
     __builtin_cpu_init();
 
+#if defined(__AVX512__)
     if(__builtin_cpu_supports("avx512f")) {
         hpgemm_ukernel = hpgemm_ukernel_avx512_14x32;
         hpgemm_mr = 14;
         hpgemm_nr = 32;
         hpgemm_kernel_name = "avx512";
-    } else if(__builtin_cpu_supports("avx2") && __builtin_cpu_supports("fma")) {
+    } else
+#endif  // AVX512
+
+    if(__builtin_cpu_supports("avx2") && __builtin_cpu_supports("fma")) {
         hpgemm_ukernel = hpgemm_ukernel_avx2_6x16;
         hpgemm_kernel_name = "avx2";
     }

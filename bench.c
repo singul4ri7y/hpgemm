@@ -107,7 +107,7 @@ int main(int argc, char **argv) {
     int end = atoi(argv[3]);
     int step = atoi(argv[4]);
 
-    hpgemm_init();
+    kernel_init();
     printf("Kernel: %s (%dx%d)\n", hpgemm_kernel_name, hpgemm_mr, hpgemm_nr);
 
     int nt = omp_get_max_threads();

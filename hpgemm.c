@@ -333,7 +333,7 @@ void hpgemm(
     int ld_y
 ) {
     if(HPGEMM_UNLIKELY(hpgemm_ukernel == NULL))
-        hpgemm_init();
+        kernel_init();
 
     float *y_packed_all = NULL;
 

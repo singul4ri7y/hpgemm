@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
 
     /* Cache blocking is per core, so find it on a single thread. */
     omp_set_num_threads(1);
-    hpgemm_init();
+    kernel_init();
 
     /* Matrices are shared by all the runs, `hpgemm()` overwrites `C`. */
     A = hpgemm_malloc((size_t) end * end * sizeof(float), 64);
