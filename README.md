@@ -13,18 +13,18 @@ The benchmark compares hpgemm against Intel MKL SGEMM on square matrices. Benche
 <p align="center">
   <figure>
     <img src="benchmarks/amd_epyc_7302_avx2_singlethread.png" alt="AMD EPYC 7302 single thread" width="700">
-    <figcaption align="center">AMD EPYC 7302 (64 cores)</figcaption>
+    <figcaption align="center">AMD EPYC 7302</figcaption>
   </figure>
 </p>
 
 <p align="center">
   <figure>
     <img src="benchmarks/intel_xeon_e5_2683_singlethread.png" alt="Intel Xeon E5-2683 single thread" width="700">
-    <figcaption align="center">Intel Xeon E5-2683 (64 cores)</figcaption>
+    <figcaption align="center">Intel Xeon E5-2683</figcaption>
   </figure>
 </p>
 
-### Multi thread (64 cores on both)
+### Multi thread
 
 <p align="center">
   <figure>
