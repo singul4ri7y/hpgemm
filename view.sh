@@ -8,8 +8,8 @@ set ylabel "GFLOPS"
 set grid
 set key bottom right
 
-plot "data/perf/mkl_1t.dat" using 1:2 with linespoints lc rgb "blue" lw 2 pt 7 title "Intel MKL", \
-     "data/perf/hpgemm_1t.dat" using 1:2 with linespoints lc rgb "red" lw 2 pt 5 title "hpgemm"
+plot "data/perf/mkl_1t.dat" using 1:2 with linespoints lc rgb "blue" lw 1 pt 7 title "Intel MKL", \
+     "data/perf/hpgemm_1t.dat" using 1:2 with linespoints lc rgb "red" lw 1 pt 7 title "hpgemm"
 GP
 
 # Multithreaded window
@@ -20,6 +20,6 @@ set ylabel "GFLOPS"
 set grid
 set key bottom right
 
-plot "data/perf/mkl_mt.dat" using 1:2 with linespoints lc rgb "blue" lw 2 pt 7 title "Intel MKL", \
-     "data/perf/hpgemm_mt.dat" using 1:2 with linespoints lc rgb "red" lw 2 pt 5 title "hpgemm"
+plot "data/perf/mkl_mt.dat" using 1:2 with linespoints lc rgb "blue" lw 1 pt 7 title "Intel MKL", \
+     "data/perf/hpgemm_mt.dat" using 1:2 with linespoints lc rgb "red" lw 1 pt 7 title "hpgemm"
 GP
