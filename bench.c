@@ -16,7 +16,7 @@ static float *new_mat(int r, int c) {
     return mat;
 }
 
-/* Bench MKL and hp-gemm with `nt` threads (dimension vs GFLOPS). The data is
+/* Bench MKL and hpgemm with `nt` threads (dimension vs GFLOPS). The data is
    written to `data/perf/{mkl,hpgemm}_<tag>.dat`, two columns, gnuplot ready. */
 static void bench(
     const char *tag, int nt,
@@ -58,7 +58,7 @@ static void bench(
                 mkl_best = ttook;
         }
 
-        /* hp-gemm. */
+        /* hpgemm. */
         for(int i = 0; i < repeat; i++) {
             double ttook = omp_get_wtime();
             hpgemm(false, false, dim, dim, dim, 0.0f, C, dim, 1.0f, A, dim, B,
@@ -77,7 +77,7 @@ static void bench(
                 err = diff;
         }
 
-        printf("[%s] nxn=%d, MKL = %lf GFLOPS, hp-gemm = %lf GFLOPS, err = %g%s\n",
+        printf("[%s] nxn=%d, MKL = %lf GFLOPS, hpgemm = %lf GFLOPS, err = %g%s\n",
             tag, dim, gflops / mkl_best, gflops / hp_best, err,
             err > 1e-3f ? " (MISMATCH)" : "");
 
